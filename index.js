@@ -37,7 +37,7 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  return numbers.length;
 }
 
 /**
@@ -45,15 +45,26 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  // TODO
+  let sum = 0; // sets the sum to zero before we start are for loop
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
 }
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the mean of the numbers
  */
+//we need to add all  the numbers together using a for loop then divide by the total of numbers in our array
 function getMean(numbers) {
-  // TODO
+  let mean = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    mean += numbers[i];
+  }
+  return mean / numbers.length;
 }
 
 /**
@@ -61,7 +72,14 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+  let min = numbers[0];
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] < min) {
+      min = numbers[i];
+    }
+  }
+  return min;
 }
 
 /**
@@ -69,7 +87,14 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+  let max = numbers[0];
+
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i];
+    }
+  }
+  return max;
 }
 
 /**
@@ -77,7 +102,10 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+  let max = getMax(numbers);
+  let min = getMin(numbers);
+
+  return max - min;
 }
 
 /**
@@ -85,7 +113,10 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+  const evenNumbers = numbers.filter((number) => {
+    return number % 2 === 0;
+  });
+  return evenNumbers;
 }
 
 /**
@@ -93,5 +124,8 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  // TODO
+  const oddNumbers = numbers.filter((number) => {
+    return number % 2 !== 0;
+  });
+  return oddNumbers;
 }
